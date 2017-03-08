@@ -1,7 +1,7 @@
 //Created by Sahil Tandon 
 //The program uses generic datatype for the stored value and can be easily changed to support different datatypes.
 
-public class bst {
+public class BinarySearchTree {
 
 	public static void main(String args[]){
 		BST<Integer> tree = new BST<Integer>();
@@ -27,14 +27,14 @@ public class bst {
 
 class BST<t extends Comparable<t>> {
 	
-	private	Node<t> root;
+	private	Node root;
 
-	public Node<t> getRoot(){
+	public Node getRoot(){
 		return root;
 	}
 
 	public void createTree(t data){
-		root = new Node<t>();
+		root = new Node();
 		root.setData(data);
 		root.left = null;
 		root.right = null;
@@ -140,12 +140,10 @@ class BST<t extends Comparable<t>> {
 		}	
 	}
 
-}
-
-class Node<t extends Comparable<t>> {
+	class Node {
 	private t data;
-	public Node<t> left;
-	public Node<t> right;
+	public Node left;
+	public Node right;
 
 	public void setData(t data){
 		this.data = data;
@@ -155,4 +153,6 @@ class Node<t extends Comparable<t>> {
 		return data;
 	}
 
+
+}
 }
