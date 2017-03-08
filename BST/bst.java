@@ -12,7 +12,7 @@ public class bst {
 }
 
 
-class BST<t> {
+class BST<t extends Comparable<t>> {
 	
 	private	Node<t> root;
 
@@ -35,7 +35,7 @@ class BST<t> {
 		boolean leftRightFlag;
 		while (nodeReference != null){
 			parentTracker = nodeReference;
-			if(nodeReference.getData()>=data){
+			if(nodeReference.getData().compareTo(data)>0){
 				nodeReference = nodeReference.left;
 				leftRightFlag = true;	
 			}
@@ -61,10 +61,10 @@ class BST<t> {
 		Node parentTracker;
 		while(nodeReference!=null){
 			parentTracker = nodeReference;
-			if (nodeReference.getData() == data) {
+			if (nodeReference.getData().equals(data)) {
 				return parentTracker;
 			}
-			else if (nodeReference.getData()>=data){
+			else if (nodeReference.getData().compareTo(data)>0){
 				nodeReference = nodeReference.left;
 			}
 			else{
@@ -77,10 +77,10 @@ class BST<t> {
 	public Node locateNode(t data){
 		Node nodeReference = root;
 		while(nodeReference!=null){
-			if (nodeReference.getData() == data) {
+			if (nodeReference.getData().equals(data)) {
 				return nodeReference;
 			}
-			else if (nodeReference.getData()>=data){
+			else if (nodeReference.getData().compareTo(data)>0) {
 				nodeReference = nodeReference.left;
 			}
 			else{
@@ -91,8 +91,8 @@ class BST<t> {
 	}
 
 	public boolean searchNode(t data){
-		Node locationResult = 	locateNode(data);
-		if(locateResult!=null){
+		Node locationResult = locateNode(data);
+		if(locationResult!=null){
 			return true; //Search hit
 		}
 		else{
@@ -114,7 +114,7 @@ class BST<t> {
 	public boolean deleteNode(t data){
 		Node locateResult = locateParentNode(data);
 		if(locateResult!=null){
-			if(locateResult.left.getData() == data){
+			if(locateResult.left.getData().equals(data)) {
 				locateResult.left = null;
 			}
 			else{
@@ -129,16 +129,16 @@ class BST<t> {
 
 }
 
-class Node<T> {
-	private T data;
-	public Node<T> left;
-	public Node<T> right;
+class Node<t extends Comparable<t>> {
+	private t data;
+	public Node<t> left;
+	public Node<t> right;
 
-	public void setData(T data){
+	public void setData(t data){
 		this.data = data;
 	}
 
-	public T getData(){
+	public t getData(){
 		return data;
 	}
 
