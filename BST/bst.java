@@ -31,8 +31,8 @@ class BST<t extends Comparable<t>> {
 		Node newNode = new Node();
 		newNode.setData(data);
 		Node nodeReference = root;
-		Node parentTracker;
-		boolean leftRightFlag;
+		Node parentTracker = root;
+		boolean leftRightFlag = true;
 		while (nodeReference != null){
 			parentTracker = nodeReference;
 			if(nodeReference.getData().compareTo(data)>0){
