@@ -5,8 +5,21 @@ public class bst {
 
 	public static void main(String args[]){
 		BST<Integer> tree = new BST<Integer>();
-		tree.createTree(5);
+		tree.createTree(new Integer(5));
+		tree.addNode(new Integer(6));
+		tree.addNode(new Integer(7));
+		tree.addNode(new Integer(8));
+		tree.addNode(new Integer(9));
+		tree.addNode(new Integer(10));
+		tree.addNode(new Integer(11));
+		tree.addNode(new Integer(12));
 		System.out.println(tree.getRoot().getData());
+		if(tree.searchNode(new Integer(8))){
+			System.out.println("Node 8 found");
+		}
+		else{
+			System.out.println("Node 8 not found");
+		}
 	}
 
 }
