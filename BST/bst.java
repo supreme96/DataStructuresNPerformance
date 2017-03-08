@@ -30,11 +30,11 @@ class BST<t> {
 	public void addNode(t data){
 		Node newNode = new Node();
 		newNode.setData(data);
-		Node nodePositionFinder = root;
+		Node nodeReference = root;
 		Node parentTracker;
 		boolean leftRightFlag;
-		while(nodeReference != null){
-			parentTracker = nodePositionFinder;
+		while (nodeReference != null){
+			parentTracker = nodeReference;
 			if(nodeReference.getData()>=data){
 				nodeReference = nodeReference.left;
 				leftRightFlag = true;	
@@ -51,7 +51,7 @@ class BST<t> {
 			parentTracker.right = newNode;
 		}
 		newNode = null;
-		nodePositionFinder = null;
+		nodeReference = null;
 		parentTracker = null;
 		System.out.println("Node Added Successfully");
 	}
@@ -115,10 +115,10 @@ class BST<t> {
 		Node locateResult = locateParentNode(data);
 		if(locateResult!=null){
 			if(locateResult.left.getData() == data){
-				locateResult.left == null;
+				locateResult.left = null;
 			}
 			else{
-				locateResult.right == null;
+				locateResult.right = null;
 			}
 			return true; //Report true that the node value was successfully deleted.
 		}
